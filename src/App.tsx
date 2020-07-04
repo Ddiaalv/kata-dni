@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Switch, Link, Route } from 'react-router-dom';
 import { GenerateRandomDni } from './components/Views/GenerateRandomDni';
 import { CalculateDniLetter } from './components/Views/CalculateDniLetter';
+import { ROUTES } from './utils/routes';
 
 const App: React.FC = () => {
   return (
@@ -11,14 +12,14 @@ const App: React.FC = () => {
         <Switch>
           <>
             <nav>
-              <Link to={'/generate-random-dni'}>Generate random dni</Link>
-              <Link to={'/calculate-dni-letter'}>Calculate dni letter</Link>
+              <Link to={ROUTES.generateRandomDni}>Generate random dni</Link>
+              <Link to={ROUTES.calculateDniLetter}>Calculate dni letter</Link>
             </nav>
           </>
         </Switch>
         <main>
-          <Route path={'/generate-random-dni'} component={GenerateRandomDni} />
-          <Route path={'/calculate-dni-letter'} component={CalculateDniLetter} />
+          <Route path={ROUTES.generateRandomDni} component={GenerateRandomDni} />
+          <Route path={ROUTES.calculateDniLetter} component={CalculateDniLetter} />
         </main>
       </BrowserRouter>
     </div>
