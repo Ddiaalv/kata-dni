@@ -20,7 +20,7 @@ export const DniCard: React.FC<DniCardProps> = ({
 }) => (
   <div className="DniCard">
     <img src={picture} alt="" />
-    <p> Apellidos:{lastName}</p>
+    <p> Apellidos: {lastName}</p>
     <p> Nombre: {firstName}</p>
     <p> Sexo: {gender}</p>
     <p> Fecha nacimiento: {date}</p>

@@ -1,45 +1,11 @@
 import * as React from 'react';
 import { render, RenderResult } from '@testing-library/react';
 import { GenerateRandomDni } from './index';
-import {
-  calculateDniLetter,
-  getRandomNumber,
-  stringOfRandomNumbers,
-} from '../../../utils/utils';
 
 describe('GenerateRandomDni', () => {
-  it('should display the title of the page', () => {
+  it('should renderize the component', () => {
     const title = 'Random DNI aplication';
     const renderResult: RenderResult = render(<GenerateRandomDni />);
     expect(renderResult.queryByText(title)).toBeTruthy();
-  });
-
-  it('should display the button for generate a new Dni', () => {
-    const buttonText = 'Random DNI';
-    const renderResult: RenderResult = render(<GenerateRandomDni />);
-    expect(renderResult.queryByText(buttonText)).toBeTruthy();
-  });
-  test('should generate a random number between 0 and 9', () => {
-    let times = 0;
-    const min = 0;
-    const max = 9;
-    do {
-      const randomNumber = getRandomNumber(min, max);
-      expect(randomNumber).toBeLessThanOrEqual(max);
-      expect(randomNumber).toBeGreaterThanOrEqual(min);
-      times++;
-    } while (times < 20);
-  });
-
-  test('should generate an eight digit string', () => {
-    const lenghtString = 8;
-    const numbers = stringOfRandomNumbers(lenghtString);
-    expect(numbers.length).toBe(lenghtString);
-  });
-
-  test('should return the dni letter', () => {
-    const letter = 'H';
-    const result = calculateDniLetter('11111111');
-    expect(result).toBe(letter);
   });
 });
