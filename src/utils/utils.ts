@@ -46,9 +46,17 @@ const calculateDniLetter = (dni: string): string => {
   return officialDniLetterTable[index];
 };
 
+const generateRandomDni = () => {
+  const limitDigits = 8;
+  let provisionalDni = stringOfRandomNumbers(limitDigits);
+  provisionalDni += calculateDniLetter(provisionalDni);
+  return provisionalDni;
+};
+
 export {
   stringOfRandomNumbers,
   calculateDniLetter,
   getRandomNumber,
   checkIfContainsOnlyNumbers,
+  generateRandomDni,
 };
