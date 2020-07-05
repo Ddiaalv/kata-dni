@@ -4,6 +4,13 @@ import './GenerateRandomDni.scss';
 import { generateRandomDni } from '../../../utils/utils';
 import { PersonDefault, PersonProps } from './types';
 import { DniCard } from '../../DniCard';
+import {
+  Title,
+  GenerateRandomDniContainer,
+  Button,
+  RandomDniStructure,
+  GenerateRandomInfo,
+} from './styles';
 
 export const GenerateRandomDni: React.FC<{}> = () => {
   const [person, setPerson] = useState<PersonProps>(PersonDefault);
@@ -26,22 +33,35 @@ export const GenerateRandomDni: React.FC<{}> = () => {
   };
 
   return (
-    <div className="GenerateRandomDni">
-      <h1>Random DNI aplication</h1>
-      {person.dni !== '' ? (
-        <DniCard
-          firstName={person.firstName}
-          lastName={person.lastName}
-          gender={person.genderLetter}
-          date={person.date}
-          picture={person.picture}
-          dni={person.dni}
-        />
-      ) : (
-        ''
-      )}
-      <button onClick={randomDni}>Random DNI</button>
-    </div>
+    <GenerateRandomDniContainer>
+      <RandomDniStructure>
+        <GenerateRandomInfo>
+          <Title>Genera un dni aleatorio</Title>
+          <h3>Instrucciones:</h3>
+          <p>
+            Unicamente debes hacer clic sobre el boton “GENERATE DNI” y podrás generar un
+            nuevo DNI. Cabe destacar que los nombres y las personas que aparecen en esta
+            aplicación son recogidos de una API llamada: randomuser.me.
+          </p>
+        </GenerateRandomInfo>
+
+        {person.dni !== '' ? (
+          <DniCard
+            firstName={person.firstName}
+            lastName={person.lastName}
+            gender={person.genderLetter}
+            date={person.date}
+            picture={person.picture}
+            dni={person.dni}
+          />
+        ) : (
+          ''
+        )}
+      </RandomDniStructure>
+      <Button className={'button'} role="button" onClick={randomDni}>
+        Random DNI
+      </Button>
+    </GenerateRandomDniContainer>
   );
 };
 

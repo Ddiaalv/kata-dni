@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import { GenerateRandomDni } from './components/Views/GenerateRandomDni';
 import { CalculateDniLetter } from './components/Views/CalculateDniLetter';
 import { ROUTES } from './utils/routes';
+import { Navigation } from './App.styled';
 
 const App: React.FC = () => {
   return (
@@ -11,10 +12,10 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Switch>
           <>
-            <nav>
+            <Navigation>
               <Link to={ROUTES.generateRandomDni}>Generate random dni</Link>
               <Link to={ROUTES.calculateDniLetter}>Calculate dni letter</Link>
-            </nav>
+            </Navigation>
           </>
         </Switch>
         <main>
