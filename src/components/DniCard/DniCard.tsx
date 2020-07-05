@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './DniCard.scss';
+import { DniCardContainer, DniInfo, DniInfoTitle, DniTitle, DniInfoImg } from './style';
 
 interface DniCardProps {
   lastName: string;
@@ -18,14 +19,24 @@ export const DniCard: React.FC<DniCardProps> = ({
   dni,
   picture,
 }) => (
-  <div className="DniCard">
-    <img src={picture} alt="" />
-    <p> Apellidos: {lastName}</p>
-    <p> Nombre: {firstName}</p>
-    <p> Sexo: {gender}</p>
-    <p> Fecha nacimiento: {date}</p>
-    <p> DNI: {dni}</p>
-  </div>
+  <DniCardContainer>
+    <DniInfoImg id="DniInfoImg">
+      <img src={picture} alt="Foto tamaño DNI de una persona" />
+      <DniInfoTitle>dni</DniInfoTitle>
+      <DniInfo>{dni}</DniInfo>
+    </DniInfoImg>
+    <div id="DniInfo">
+      <DniTitle>DNI</DniTitle>
+      <DniInfoTitle>apellidos</DniInfoTitle>
+      <DniInfo> {lastName}</DniInfo>
+      <DniInfoTitle>nombre</DniInfoTitle>
+      <DniInfo>{firstName}</DniInfo>
+      <DniInfoTitle>sexo</DniInfoTitle>
+      <DniInfo> {gender}</DniInfo>
+      <DniInfoTitle>fecha nacimiento</DniInfoTitle>
+      <DniInfo> {date}</DniInfo>
+    </div>
+  </DniCardContainer>
 );
 
 DniCard.displayName = 'DniCard';
